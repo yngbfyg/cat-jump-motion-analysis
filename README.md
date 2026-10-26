@@ -10,6 +10,8 @@ for pose estimation, OpenCV for calibration/visualization, and Python/NumPy/
 Matplotlib for plotting polynomial approximations of tracked keypoints.
 **The team used an existing pose-estimation model; it did not train a new neural network.**
 
+[Browse the complete project source, analysis scripts, data, and methodology](cat-jump-motion-analysis/).
+
 ## Preview
 
 The following plots are regenerated directly from the retained coordinate samples.
@@ -18,7 +20,11 @@ An optional curve fit is available for exploratory analysis, but is **not a vali
 
 | Left ear | Throat | Tail |
 |---|---|---|
-| ![Left ear trajectory](results/ear.png) | ![Throat trajectory](results/throat.png) | ![Tail trajectory](results/tail.png) |
+| ![Left ear trajectory](cat-jump-motion-analysis/results/ear.png) | ![Throat trajectory](cat-jump-motion-analysis/results/throat.png) | ![Tail trajectory](cat-jump-motion-analysis/results/tail.png) |
+
+## Video demonstrations
+
+The original and tracked video previews are being added to [`media/`](cat-jump-motion-analysis/media/). The processing scripts and plotted results are already available below.
 
 ## What we built in the original project
 
