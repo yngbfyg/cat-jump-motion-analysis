@@ -9,11 +9,11 @@ We investigated how a cat's movement can be analyzed using video recordings, bod
 
 ## Demo: tracking a cat's jump
 
-![Animated demo of tracked cat keypoints](cat-jump-motion-analysis/media/tracking_demo.gif)
+![Animated demo of tracked cat keypoints](media/tracking_demo.gif)
 
 *Original footage recorded by Margarita Trott. Keypoint-tracking preview from the project.*
 
-**Watch the videos:** [Original jump](cat-jump-motion-analysis/media/original_jump.mp4) · [Processed jump with tracked keypoints](cat-jump-motion-analysis/media/tracked_jump.mp4)
+**Watch the videos:** [Original jump](media/original_jump.mp4) · [Processed jump with tracked keypoints](media/tracked_jump.mp4)
 
 ## Original experiment results
 
@@ -21,9 +21,7 @@ These are the **original plots from our 2023 school research**, rather than the 
 
 | Experiment 1 — Left ear | Experiment 2 — Throat | Experiment 3 — Tail |
 |:---:|:---:|:---:|
-| ![Original left-ear jump trajectory](cat-jump-motion-analysis/results/original-ear-trajectory.jpg) | ![Original throat jump trajectory](cat-jump-motion-analysis/results/original-throat-trajectory.jpg) | ![Original tail jump trajectory](cat-jump-motion-analysis/results/original-tail-trajectory.png) |
-
-*Original graph files: `original-ear-trajectory.jpg`, `original-throat-trajectory.jpg`, and `original-tail-trajectory.png`. They must be present in the project's `results/` folder for the gallery to display.*
+| ![Original left-ear jump trajectory](results/original-ear-trajectory.jpg) | ![Original throat jump trajectory](results/original-throat-trajectory.jpg) | ![Original tail jump trajectory](results/original-tail-trajectory.png) |
 
 The original research also included plots of positions, velocities, and accelerations. Those historical results should be treated as exploratory: the timestamp and frame associations necessary to independently verify the derived velocities and accelerations are not fully preserved in the exported dataset.
 
@@ -45,7 +43,6 @@ Python 3.10+ is recommended.
 
 ```bash
 # Run from the repository root
-cd cat-jump-motion-analysis
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -57,12 +54,12 @@ python -m unittest discover -s tests -v
 
 The cleaned-up script plots positions from the saved **pixel-coordinate samples**. It can optionally fit a polynomial (e.g., `--degree 2`). It does not rerun DeepLabCut and **does not reconstruct velocity or acceleration** from uncertain time information.
 
-The original experimental figures are shown above. The separately regenerated examples remain available as [ear](cat-jump-motion-analysis/results/ear.png), [throat](cat-jump-motion-analysis/results/throat.png), and [tail](cat-jump-motion-analysis/results/tail.png) for comparison, not as replacements for the original results.
+The original experimental figures are shown above. The separately regenerated examples remain available as [ear](results/ear.png), [throat](results/throat.png), and [tail](results/tail.png) for comparison, not as replacements for the original results.
 
 ## Repository structure
 
 ```text
-cat-jump-motion-analysis/
+.
 ├── data/                 # Selected saved keypoint coordinates
 ├── src/analyze.py        # Reproducible analysis of the saved data
 ├── tests/                # Basic automated tests

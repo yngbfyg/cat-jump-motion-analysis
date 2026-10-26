@@ -30,8 +30,10 @@ speed, and acceleration based on polynomial coefficients.
    explicit treatment of pose-estimation uncertainty.
 5. A curve fitted as y(x) is not a time parameterization. A good geometric
    fit alone does not imply physically realistic speed or acceleration.
-6. Video/model weights and potentially identifiable footage have been
-   intentionally excluded from this shareable draft.
+6. Short preview footage is included in `media/`: `tracking_demo.gif`,
+   `original_jump.mp4`, and `tracked_jump.mp4`. The videos were recorded
+   by Margarita Trott or derived from her recordings. Full-length raw
+   recordings and pretrained DeepLabCut model weights are not included.
 
 ## Useful future improvements
 
