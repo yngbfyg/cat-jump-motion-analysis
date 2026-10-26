@@ -1,11 +1,9 @@
 # Video demonstrations
 
-This folder contains short demonstrations recorded by Margarita Trott for the **Cat Jump Motion Analysis** school research project (co-authored with Irina Khlebina).
+The videos and GIF in this folder are short previews of the original **Cat Jump Motion Analysis** school research (2023), by Margarita Trott and Irina Khlebina.
 
-The accompanying media files to upload are:
+- [`tracking_demo.gif`](tracking_demo.gif) — GIF preview embedded at the top of the project README.
+- [`original_jump.mp4`](original_jump.mp4) — a short extract of the original recording.
+- [`tracked_jump.mp4`](tracked_jump.mp4) — the corresponding processed clip with tracked keypoints.
 
-- `tracking_demo.gif` — an animated preview of tracked keypoints, embedded in the project README.
-- `original_jump.mp4` — a short extract of the original footage.
-- `tracked_jump.mp4` — the corresponding processed footage with tracking.
-
-The clips are demonstrations rather than training data. The pose-estimation model came from the existing DeepLabCut Model Zoo; this project did not train a new model.
+**Footage recorded by Margarita Trott.** The pose-estimation model is from the existing DeepLabCut Model Zoo, not trained as part of this project.
