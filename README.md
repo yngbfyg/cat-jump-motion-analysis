@@ -37,6 +37,12 @@ The original research also included plots of positions, velocities, and accelera
 
 The project included original Python scripts and a guide describing the experimental workflow.
 
+### Pixel-to-centimeter calibration
+
+The original project also detected a **colored square marker of known physical size** using OpenCV HSV thresholding. The marker's measured side length in pixels was divided by its length in centimeters to calculate a spatial scale. The historical scripts retained `kalibr = 13` pixels/cm, but this is **not independently verified for every saved video**.
+
+The [original marker-detection scripts](legacy/) are still preserved. A new [calibration guide](docs/calibration.md) and `src/calibration.py` can calculate a video-specific scale from four measured corners, and `src/analyze.py --pixels-per-cm VALUE` can optionally plot coordinates in centimeters. Default plots remain in pixels.
+
 ## Reproduce the available coordinate plots
 
 The repository includes a **later, publication-oriented analysis script** to make the saved coordinate samples easier to inspect. This is distinct from the original 2023 plotting programs, which are preserved in `legacy/`.
@@ -64,18 +70,20 @@ The original experimental figures are shown above. The separately regenerated ex
 .
 ├── data/                 # Selected saved keypoint coordinates
 ├── src/analyze.py        # Reproducible analysis of the saved data
+├── src/calibration.py    # Optional square-marker pixels/cm calculator
 ├── tests/                # Basic automated tests
 ├── results/              # Highlighted trajectories and regenerated examples
 │   └── original/         # All 27 original graphs with a separate gallery README
 ├── media/                # GIF preview and short original/processed videos
 ├── legacy/               # Historical school-project Python scripts
 ├── docs/methodology.md   # Workflow and limitations
+├── docs/calibration.md   # Original physical calibration explained
 └── requirements.txt
 ```
 
 ## Limitations
 
-- Some exported coordinate observations were filtered by confidence **without retaining the corresponding frame indices**. Row order is not a reliable time axis.
+- Published filtered CSVs omit original frame indices, so row order is not a reliable time axis. However, an original **left-ear Excel export** retained 170 frame-numbered observations; its values match the 109 saved left-ear points. That source workbook is still outside this repository, and frame/time mapping has not been independently verified for the other two experiments.
 - The legacy scripts contain manually supplied time values and approximations, but these cannot all be safely matched to the retained filtered coordinates.
 - The original pixel-to-centimeter calibration was not independently revalidated for every saved data extract; the reproducible script therefore uses pixel coordinates.
 - Polynomial fits summarize observations and should not automatically be interpreted as physically validated motion models.

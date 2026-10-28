@@ -7,6 +7,7 @@ claim to estimate physical speed or acceleration.
 
 import argparse
 import csv
+import math
 from pathlib import Path
 
 import matplotlib
@@ -57,7 +58,15 @@ def fit_trajectory(samples: np.ndarray, degree: int = 2):
     return grid, fitted, rmse
 
 
-def plot_samples(samples: np.ndarray, output: Path, name: str, degree: int | None) -> None:
+def plot_samples(samples: np.ndarray, output: Path, name: str, degree: int | None,
+                 pixels_per_cm: float | None = None) -> None:
+    if pixels_per_cm is not None:
+        if not math.isfinite(pixels_per_cm) or pixels_per_cm <= 0:
+            raise ValueError("pixels_per_cm must be a positive finite number")
+        samples = samples.copy()
+        samples[:, 1:3] /= pixels_per_cm
+    unit = "cm" if pixels_per_cm is not None else "pixels"
+    unit_short = "cm" if pixels_per_cm is not None else "px"
     indices, x, y, confidence = samples.T
     fig, axs = plt.subplots(1, 2, figsize=(11.5, 4.4), layout="constrained")
     ax = axs[0]
@@ -65,20 +74,20 @@ def plot_samples(samples: np.ndarray, output: Path, name: str, degree: int | Non
     if degree is not None:
         grid, values, rmse = fit_trajectory(samples, degree)
         ax.plot(grid, values, color="orangered", lw=2,
-                label=f"Degree {degree} fit (RMSE {rmse:.1f} px)")
+                label=f"Degree {degree} fit (RMSE {rmse:.1f} {unit_short})")
         ax.legend(fontsize=8)
     ax.invert_yaxis()  # Video/image coordinates: y increases downward.
-    ax.set_xlabel("X position (pixels)")
-    ax.set_ylabel("Y position (pixels; origin at top)")
+    ax.set_xlabel(f"X position ({unit})")
+    ax.set_ylabel(f"Y position ({unit}; origin at top)")
     ax.set_title("Observed keypoint trajectory")
     ax.grid(alpha=0.2)
     fig.colorbar(scatter, ax=ax, label="Keypoint confidence", shrink=0.83)
 
     ax = axs[1]
-    ax.plot(indices, x, '.-', label='X (px)', markersize=3)
-    ax.plot(indices, y, '.-', label='Y (px)', markersize=3)
+    ax.plot(indices, x, '.-', label=f'X ({unit_short})', markersize=3)
+    ax.plot(indices, y, '.-', label=f'Y ({unit_short})', markersize=3)
     ax.set_xlabel("Recorded sample index (NOT frame or time)")
-    ax.set_ylabel("Position (pixels)")
+    ax.set_ylabel(f"Position ({unit})")
     ax.set_title("Tracked positions in recorded order")
     ax.legend()
     ax.grid(alpha=0.2)
@@ -96,10 +105,12 @@ def main() -> None:
     parser.add_argument("--degree", type=int, default=0,
                         help="Optional degree for illustrative y(x) curve fit; default 0 (off)")
     parser.add_argument("--min-confidence", type=float, default=0.0)
+    parser.add_argument("--pixels-per-cm", type=float, default=None,
+                        help="Optional verified pixels/cm marker calibration (from same video)")
     args = parser.parse_args()
     samples = load_samples(args.data, args.min_confidence)
     plot_samples(samples, args.output, args.name,
-                 None if args.degree == 0 else args.degree)
+                 None if args.degree == 0 else args.degree, args.pixels_per_cm)
     print(f"Saved {args.output} ({len(samples)} samples)")
 
 

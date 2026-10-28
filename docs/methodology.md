@@ -17,10 +17,14 @@ speed, and acceleration based on polynomial coefficients.
 
 ## Caveats discovered when preparing a reproducible public demo
 
-1. The original exported coordinate TXT files contain only (x,y,likelihood)
-   values. Frame numbers have not been preserved after manual filtering.
-   Original handwritten time lists contain more entries than the exported
-   coordinate lists, so pairing by row index is unjustified.
+1. The filtered TXT coordinate files contain only (x,y,likelihood), without
+   original frame indices. The original source archive also has a full
+   DeepLabCut Excel export for the left-ear experiment (170 frame-numbered
+   entries). All 109 filtered left-ear points match that export, so indices
+   can be recovered for this experiment, though the full workbook has not
+   been uploaded to GitHub. Frame/time mapping for the other experiments
+   remains unverified, and filtered rows cannot simply be paired with the
+   separate handwritten time lists.
 2. Some old plotting scripts hardcode a video-frame height of 1000 pixels
    even though original clips have different frame sizes.
 3. The original scripts read local filenames and depend on OpenCV GUI
@@ -41,3 +45,12 @@ Export the DeepLabCut keypoint tracks **with original frame indices and
 timestamps**; validate the pixel-to-centimeter scale independently for each
 video; separate motion phases; visualize uncertainty and occlusions; compare
 low-order polynomial, spline, and physically motivated ballistic models.
+
+## Pixel-to-centimeter calibration
+
+The original video workflow used a colored square of known size: HSV thresholding,
+contour/rectangle corners and a pixels-per-centimeter coefficient stored as
+kalibr = 13 in historical plot scripts. The camera/resolution/physical marker
+measurements have not been revalidated for all experiments. See
+[calibration.md](calibration.md) for the original method and the modern optional
+scale calculator. Default regenerated plots stay in pixels.
