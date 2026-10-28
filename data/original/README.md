@@ -1,6 +1,6 @@
 # Original data and source provenance
 
-The original 2023 archive contains a multi-keypoint DeepLabCut Excel export for the **left-ear experiment** and three coordinate TXT files from separate experiments. Files in the parent \`data/\` folder are cleaned-up input for modern plotting and do **not** store original frame IDs.
+The original 2023 archive contains a multi-keypoint DeepLabCut Excel export for the **left-ear experiment** and three coordinate TXT files from separate experiments. Files in the parent `data/` folder are cleaned-up input for modern plotting and do **not** store original frame IDs.
 
 ## Uploaded, recoverable data
 
@@ -9,13 +9,15 @@ The original 2023 archive contains a multi-keypoint DeepLabCut Excel export for 
 
 Values are in **pixels**, not centimeters. A frame number is not a timestamp. Frame/time alignment is not independently established for throat and tail.
 
-## Historical source files (optional upload)
+## Uploaded original TXT sources
 
-The source-package ZIP also includes:
-- \`left-ear-deeplabcut-170-frames.xlsx\`: unmodified original 2023 multi-body-part spreadsheet;
-- \`left-ear-filtered-positions.txt\`, \`throat-filtered-positions.txt\`, \`tail-filtered-positions.txt\`: original tab-separated coordinate triples, with decimal commas;
-- \`left-ear-handwritten-times.txt\`, \`additional-handwritten-times.txt\`: the original handwritten time values.
+- [Left-ear original coordinate triples](left-ear-filtered-positions.txt), [throat](throat-filtered-positions.txt), [tail](tail-filtered-positions.txt): original tab-delimited x/y/likelihood triples, preserved with decimal commas.
+- [Left-ear handwritten times](left-ear-handwritten-times.txt) and [additional handwritten times](additional-handwritten-times.txt): two original time records.
 
-The source TXT time lists **must not** be paired to filtered coordinates by row index without verifying their association. These binary/original files require a separate upload if not yet visible here.
+**Caution:** neither time list can automatically be aligned with confidence-filtered coordinates by row number; the original association has not been independently verified.
+
+## Optional original Excel workbook
+
+The source-documents package contains `left-ear-deeplabcut-170-frames.xlsx`, the untouched original multi-body-part export. The two frame-indexed CSVs above already allow examination of the original left-ear coordinate series. The original XLSX itself requires a separate upload to GitHub.
 
 The original joint research is credited to Margarita Trott and Irina Khlebina (2023).
