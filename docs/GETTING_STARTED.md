@@ -24,6 +24,10 @@ To overlay a *descriptive* quadratic fit (not a validated physics model):
 python src/analyze.py --data data/ear.csv --output results/ear_fit.png --name "Left ear" --degree 2
 ~~~
 
+### DeepLabCut source data and recovered frame indices
+
+- [Full body-point export — 170 frames and 18 keypoints](../data/original/deeplabcut-all-keypoints-170-frames.csv): a portable, flat-column CSV converted from the original Excel workbook.
+
 ### Recovered frame indices for experiment 1 (left ear)
 
 - [Full left-ear data — 170 frames](../data/original/left-ear-all-frames.csv): original frame ID, x/y pixel coordinates and likelihood, including low-confidence observations.
