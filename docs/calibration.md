@@ -34,6 +34,6 @@ The examples above are illustrative, NOT an independent confirmation that 13 pix
 
 The new analysis does not compute speed or acceleration; those require reliable timing as well as calibrated positions.
 
-## Additional original materials not yet included in this GitHub repository
+## Additional original source materials
 
-The full original archive still contains a Russian step-by-step DOCX guide (including illustrative screenshots), a PPTX presentation, full source videos, TXT files of filtered coordinates and manually collected times, and the original DeepLabCut Excel export for the left-ear experiment. The 170-row frame-indexed left-ear Excel export matches all 109 filtered left-ear points, so original frame indices for that experiment are recoverable. The published CSVs still contain sample order only; time and frame correspondence for the other two experiments is not independently verified.
+The full original archive still contains a Russian step-by-step DOCX guide (including illustrative screenshots), a PPTX presentation, full source videos, TXT files of filtered coordinates and manually collected times, and the original DeepLabCut Excel export for the left-ear experiment. The 170-row frame-indexed left-ear Excel export matches all 109 filtered left-ear points, so original frame indices for that experiment are recoverable. The standard `data/ear.csv` contains sample order, but [new frame-indexed exports](../data/original/) now preserve the original frame IDs for the left-ear experiment (170 total observations and 109 original filtered observations). Time and frame correspondence for the other two experiments is not independently verified. The DOCX/PPTX and original XLSX are available as optional source-file uploads.
