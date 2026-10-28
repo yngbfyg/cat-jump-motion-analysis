@@ -23,6 +23,8 @@ These are the **original plots from our 2023 school research**, rather than the 
 |:---:|:---:|:---:|
 | ![Original left-ear jump trajectory](results/original-ear-trajectory.jpg) | ![Original throat jump trajectory](results/original-throat-trajectory.jpg) | ![Original tail jump trajectory](results/original-tail-trajectory.png) |
 
+**[View the complete gallery of 27 original experimental graphs](results/original/README.md)** — all three experiments, including trajectory, position, velocity, and acceleration plots. Original images are preserved without redrawing; velocity and acceleration charts are historical exploratory results with limitations described below.
+
 The original research also included plots of positions, velocities, and accelerations. Those historical results should be treated as exploratory: the timestamp and frame associations necessary to independently verify the derived velocities and accelerations are not fully preserved in the exported dataset.
 
 ## How it worked
@@ -63,7 +65,8 @@ The original experimental figures are shown above. The separately regenerated ex
 ├── data/                 # Selected saved keypoint coordinates
 ├── src/analyze.py        # Reproducible analysis of the saved data
 ├── tests/                # Basic automated tests
-├── results/              # Original experiment graphs and regenerated examples
+├── results/              # Highlighted trajectories and regenerated examples
+│   └── original/         # All 27 original graphs with a separate gallery README
 ├── media/                # GIF preview and short original/processed videos
 ├── legacy/               # Historical school-project Python scripts
 ├── docs/methodology.md   # Workflow and limitations
