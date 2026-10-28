@@ -37,6 +37,8 @@ The original research also included plots of positions, velocities, and accelera
 
 The project included original Python scripts and a guide describing the experimental workflow.
 
+**[Read the step-by-step Getting Started guide](docs/GETTING_STARTED.md)** — run the saved analysis, understand the original 2023 video → DeepLabCut workflow, calibrate with the colored square, and find the original research materials.
+
 ### Pixel-to-centimeter calibration
 
 The original project also detected a **colored square marker of known physical size** using OpenCV HSV thresholding. The marker's measured side length in pixels was divided by its length in centimeters to calculate a spatial scale. The historical scripts retained `kalibr = 13` pixels/cm, but this is **not independently verified for every saved video**.
@@ -78,12 +80,15 @@ The original experimental figures are shown above. The separately regenerated ex
 ├── legacy/               # Historical school-project Python scripts
 ├── docs/methodology.md   # Workflow and limitations
 ├── docs/calibration.md   # Original physical calibration explained
+├── docs/GETTING_STARTED.md # Step-by-step user guide
+├── docs/original/        # Optional original Russian documents
+├── data/original/        # Recovered frame indices, source file notes
 └── requirements.txt
 ```
 
 ## Limitations
 
-- Published filtered CSVs omit original frame indices, so row order is not a reliable time axis. However, an original **left-ear Excel export** retained 170 frame-numbered observations; its values match the 109 saved left-ear points. That source workbook is still outside this repository, and frame/time mapping has not been independently verified for the other two experiments.
+- Published filtered CSVs omit original frame indices, so row order is not a reliable time axis. However, an original **left-ear Excel export** retained 170 frame-numbered observations; its values match the 109 saved left-ear points. The original Excel workbook remains an optional source upload; two recovered frame-indexed CSV files are already in [data/original/](data/original/), and frame/time mapping has not been independently verified for the other two experiments.
 - The legacy scripts contain manually supplied time values and approximations, but these cannot all be safely matched to the retained filtered coordinates.
 - The original pixel-to-centimeter calibration was not independently revalidated for every saved data extract; the reproducible script therefore uses pixel coordinates.
 - Polynomial fits summarize observations and should not automatically be interpreted as physically validated motion models.
