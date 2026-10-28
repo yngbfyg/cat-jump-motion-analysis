@@ -50,7 +50,7 @@ python src/analyze.py --data data/ear.csv --output results/ear_cm.png \
   --name "Left ear" --pixels-per-cm 13
 ~~~
 
-The historical original scripts contained a setting \`kalibr = 13\`, with the comment "13 pixels per cm". **Do not reuse 13 automatically** for a different video or camera setup. Adjust for resizing and perspective. See [calibration details](calibration.md).
+The historical original scripts contained a setting `kalibr = 13`, with the comment "13 pixels per cm". **Do not reuse 13 automatically** for a different video or camera setup. Adjust for resizing and perspective. See [calibration details](calibration.md).
 
 ## C. Original video-to-graph experiment (2023 school instructions)
 
@@ -59,11 +59,11 @@ This is a faithful English explanation of the original Russian [2023 instruction
 1. **Record a video.** Use good lighting and a plain background. Attach the brightly colored measured square to the surface the cat jumps from. Keep the camera fixed, ideally parallel to the jump plane.
 2. **Run the existing pose-estimation notebook.** The original workflow used the [DeepLabCut Model Zoo Google Colab notebook](https://colab.research.google.com/github/DeepLabCut/DeepLabCut/blob/master/examples/COLAB/COLAB_DLC_ModelZoo.ipynb). Follow its current upload and inference steps. In the 2023 guide, the result was a coordinate CSV, video with colored keypoints, and keypoint-color legend. The notebook UI may have changed.
 3. **Select a keypoint and filter confidence.** Watch the labeled footage; select one anatomical landmark (the school project studied left ear, throat and tail). Save its x/y/likelihood columns. The old guide suggested keeping detections with likelihood above about 0.7–0.8. **Keep frame IDs in any new experiment**; the original filtered TXT files lost them.
-4. **Measure the reference square.** Use the original HSV color-selection and rectangle-corner programs, noting that their filenames and thresholds are hardcoded. Compute adjacent-corner pixel distance divided by the sticker's side length in centimeters. The legacy GUI scripts need a separately installed \`opencv-python\` package and may need compatibility fixes (e.g., older NumPy naming). They do not automatically calculate scale.
+4. **Measure the reference square.** Use the original HSV color-selection and rectangle-corner programs, noting that their filenames and thresholds are hardcoded. Compute adjacent-corner pixel distance divided by the sticker's side length in centimeters. The legacy GUI scripts need a separately installed `opencv-python` package and may need compatibility fixes (e.g., older NumPy naming). They do not automatically calculate scale.
 5. **Build the original graphs.** The programs preserved under [legacy/](../legacy/) are named for trajectory, position over time, velocity and acceleration. The historical guide asks the researcher to select a segment using left/right sliders, view selected points by pressing space, then advance with **q** to fitted polynomials of several degrees. Time values were manually recorded from visible video/laptop frames. To plot velocities, the user entered coefficients from the position fits; to plot accelerations, they entered coefficients from the velocity fits.
 6. **Interpret with caution.** The original 27 graphs remain available in the [research gallery](../results/original/README.md). Original speed and acceleration graphs are **historical exploratory outputs**, not independently validated measures; aligning frames, timing, calibration and confidence is essential to any new physics analysis.
 
-The original scripts expect manual paths, screen windows, handwritten time lists and manually chosen polynomial coefficients. They are **not an automated end-to-end pipeline**. The newer \`src/analyze.py\` works on saved coordinates only; it does not rerun DeepLabCut or compute physical speed or acceleration.
+The original scripts expect manual paths, screen windows, handwritten time lists and manually chosen polynomial coefficients. They are **not an automated end-to-end pipeline**. The newer `src/analyze.py` works on saved coordinates only; it does not rerun DeepLabCut or compute physical speed or acceleration.
 
 ## Files and reproducibility
 
