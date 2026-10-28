@@ -21,8 +21,8 @@ speed, and acceleration based on polynomial coefficients.
    original frame indices. The original source archive also has a full
    DeepLabCut Excel export for the left-ear experiment (170 frame-numbered
    entries). All 109 filtered left-ear points match that export, so indices
-   can be recovered for this experiment, though the full workbook has not
-   been uploaded to GitHub. Frame/time mapping for the other experiments
+   have been recovered for this experiment in `data/original/`; the full
+   source Excel workbook is an optional historical upload. Frame/time mapping for the other experiments
    remains unverified, and filtered rows cannot simply be paired with the
    separate handwritten time lists.
 2. Some old plotting scripts hardcode a video-frame height of 1000 pixels
