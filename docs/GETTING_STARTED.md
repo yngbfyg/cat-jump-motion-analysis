@@ -74,11 +74,11 @@ The original scripts expect manual paths, screen windows, handwritten time lists
 | Location | Purpose |
 |---|---|
 | [data/](../data/) | Simplified coordinate files used by the new plotter |
-| [data/original/](../data/original/) | Restored left-ear frame IDs and optional 2023 source files |
+| [data/original/](../data/original/) | Original 2023 XLSX and TXT files, plus restored left-ear frame IDs |
 | [results/original/](../results/original/README.md) | All 27 original figures (three experiments) |
 | [media/](../media/) | Short original/tracked video examples and animated GIF |
 | [legacy/](../legacy/) | Original Python programs as historical reference |
 | [docs/calibration.md](calibration.md) | Original and optional modern spatial calibration |
-| [docs/original/](original/README.md) | Optional unmodified Russian DOCX/PPTX originals |
+| [docs/original/](original/README.md) | Unmodified Russian DOCX manual and PPTX presentation |
 
 **Project attribution:** original joint research by Margarita Trott and Irina Khlebina; original video recordings by Margarita Trott.

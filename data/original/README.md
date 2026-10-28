@@ -20,8 +20,8 @@ Values are in **pixels**, not centimeters. A frame number is not a timestamp. Fr
 
 **Caution:** neither time list can automatically be aligned with confidence-filtered coordinates by row number; the original association has not been independently verified.
 
-## Optional original Excel workbook
+## Original Excel workbook
 
-The source-documents package contains `left-ear-deeplabcut-170-frames.xlsx`, the untouched original multi-body-part export. The two frame-indexed CSVs above already allow examination of the original left-ear coordinate series. The original XLSX itself requires a separate upload to GitHub.
+The [original DeepLabCut Excel workbook](left-ear-deeplabcut-170-frames.xlsx) is included here, unchanged from the 2023 project. The two derived frame-indexed CSVs above provide easier access to its left-ear observations.
 
 The original joint research is credited to Margarita Trott and Irina Khlebina (2023).

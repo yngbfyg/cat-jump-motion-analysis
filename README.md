@@ -7,6 +7,8 @@ We investigated how a cat's movement can be analyzed using video recordings, bod
 
 > We used an existing DeepLabCut pose-estimation model; we did **not** train a new neural network.
 
+**About this archive.** The main focus is our **original 2023 research**. We kept the historical Python programs in [`legacy/`](legacy/), all [27 original figures](results/original/README.md), the [original experimental data](data/original/), the [Russian manual and presentation](docs/original/README.md), and video demonstrations. The newer `src/` and `tests/` files were added later to make saved-coordinate exploration easier; they are **supplementary tools**, not a rewrite of the original experiment.
+
 ## Demo: tracking a cat's jump
 
 ![Animated demo of tracked cat keypoints](media/tracking_demo.gif)
@@ -25,7 +27,7 @@ These are the **original plots from our 2023 school research**, rather than the 
 
 **[View the complete gallery of 27 original experimental graphs](results/original/README.md)** — all three experiments, including trajectory, position, velocity, and acceleration plots. Original images are preserved without redrawing; velocity and acceleration charts are historical exploratory results with limitations described below.
 
-The original research also included plots of positions, velocities, and accelerations. Those historical results should be treated as exploratory: the timestamp and frame associations necessary to independently verify the derived velocities and accelerations are not fully preserved in the exported dataset.
+The original research also included plots of positions, velocities, and accelerations. **These figures are preserved as historical results**, not recomputed or edited. The original scripts used manually selected ranges, timing notes, and polynomial coefficients; some calculations have implementation issues, and reliable time/coordinate alignment cannot be independently verified for every experiment. Consequently, the velocity and acceleration curves should be treated as exploratory, not validated physical measurements.
 
 ## How it worked
 
@@ -83,14 +85,14 @@ The original experimental figures are shown above. The separately regenerated ex
 ├── docs/methodology.md   # Workflow and limitations
 ├── docs/calibration.md   # Original physical calibration explained
 ├── docs/GETTING_STARTED.md # Step-by-step user guide
-├── docs/original/        # Optional original Russian documents
-├── data/original/        # Recovered frame indices, source file notes
+├── docs/original/        # Original Russian manual and research presentation
+├── data/original/        # Original TXT/XLSX and recovered frame-indexed CSVs
 └── requirements.txt
 ```
 
 ## Limitations
 
-- Published filtered CSVs omit original frame indices, so row order is not a reliable time axis. However, an original **left-ear Excel export** retained 170 frame-numbered observations; its values match the 109 saved left-ear points. The original Excel workbook remains an optional source upload; two recovered frame-indexed CSV files are already in [data/original/](data/original/), and frame/time mapping has not been independently verified for the other two experiments.
+- Published filtered CSVs omit original frame indices, so row order is not a reliable time axis. However, an original **left-ear Excel export** retained 170 frame-numbered observations; its values match the 109 saved left-ear points. The [original Excel workbook](data/original/left-ear-deeplabcut-170-frames.xlsx) and two recovered frame-indexed CSV files are included in [data/original/](data/original/). Frame/time mapping has not been independently verified for the other two experiments.
 - The legacy scripts contain manually supplied time values and approximations, but these cannot all be safely matched to the retained filtered coordinates.
 - The original pixel-to-centimeter calibration was not independently revalidated for every saved data extract; the reproducible script therefore uses pixel coordinates.
 - Polynomial fits summarize observations and should not automatically be interpreted as physically validated motion models.
