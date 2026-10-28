@@ -2,6 +2,10 @@
 
 The original 2023 archive contains a multi-keypoint DeepLabCut Excel export for the **left-ear experiment** and three coordinate TXT files from separate experiments. Files in the parent `data/` folder are cleaned-up input for modern plotting and do **not** store original frame IDs.
 
+## Complete DeepLabCut export as CSV
+
+[deeplabcut-all-keypoints-170-frames.csv](deeplabcut-all-keypoints-170-frames.csv) contains the complete numerical data from the original 2023 Excel workbook: **170 frames × 18 tracked body parts**, with x, y and likelihood values (55 columns including frame index). The header is flattened for easy use with Python and other tools. The original multirow Excel header is not preserved in this CSV, but its labels and values are.
+
 ## Uploaded, recoverable data
 
 - [left-ear-all-frames.csv](left-ear-all-frames.csv): **170 original frame-indexed** left-ear x/y/likelihood observations, including low-confidence and zero-valued observations.
