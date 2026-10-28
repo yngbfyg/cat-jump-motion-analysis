@@ -37,6 +37,8 @@ The original research also included plots of positions, velocities, and accelera
 
 The project included original Python scripts and a guide describing the experimental workflow.
 
+**Original research data:** [the complete DeepLabCut table (170 frames × 18 body points)](data/original/deeplabcut-all-keypoints-170-frames.csv), alongside the restored left-ear frame-indexed CSVs and original TXT files.
+
 **[Read the step-by-step Getting Started guide](docs/GETTING_STARTED.md)** — run the saved analysis, understand the original 2023 video → DeepLabCut workflow, calibrate with the colored square, and find the original research materials.
 
 ### Pixel-to-centimeter calibration
